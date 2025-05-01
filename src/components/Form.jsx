@@ -2,7 +2,7 @@ import React from 'react';
 
 function Form() {
     return (
-        <div className="flex flex-col p-0 m-0 md:flex-row">
+        <div className="flex flex-col p-0 py-16 m-0 md:flex-row">
             {/* Chap tarafdagi div */}
             <div className="w-full md:w-1/2 bg-[#FAE9D3] p-10 flex flex-col justify-center">
                 <h2 className="text-[#D28527] text-2xl font-bold mb-4">

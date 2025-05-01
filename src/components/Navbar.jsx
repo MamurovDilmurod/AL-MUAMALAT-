@@ -68,7 +68,7 @@ const Navbar = () => {
                 </li>
 
                 <li className="text-sm font-semibold cursor-pointer hover:text-primary">Finance tools</li>
-                <li className="text-sm font-semibold cursor-pointer hover:text-primary">Contact</li>
+                <Link to={'contact'} className="text-sm font-semibold cursor-pointer hover:text-primary">Contact</Link>
             </ul>
 
             {/* Language Selection */}

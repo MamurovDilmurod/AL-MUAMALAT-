@@ -4,12 +4,14 @@ import Home from './components/Home'
 import RootLayout from './layout/RootLayout'
 import NotFound from './components/NotFound'
 import Login from './components/Login'
+import Contact from './pages/Contact'
 
 const App = () => {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route>
       <Route path='/' element={<RootLayout />} >
         <Route index element={<Home />} />
+        <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
       </Route>
       <Route path='*' element={<NotFound />} />

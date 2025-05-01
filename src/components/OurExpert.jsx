@@ -52,7 +52,7 @@ function OurExpert() {
                                 <img
                                     src={expert.img}
                                     alt={expert.name}
-                                    className="object-cover rounded-lg h-72 w-72"
+                                    className="object-cover rounded-lg h-80 w-72"
                                 />
                             </div>
 
