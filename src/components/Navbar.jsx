@@ -173,7 +173,7 @@ const Navbar = () => {
                         </li>
 
                         <li className="text-sm font-semibold cursor-pointer hover:text-primary">Finance tools</li>
-                        <li className="text-sm font-semibold cursor-pointer hover:text-primary">Contact</li>
+                        <Link to={'contact'} className="text-sm font-semibold cursor-pointer hover:text-primary">Contact</Link>
                         <li>
                             <Link to={'/login'}>
                                 <button className="w-full py-2 text-white transition duration-300 rounded bg-primary px-7 hover:bg-primary-dark">
