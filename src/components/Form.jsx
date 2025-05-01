@@ -4,13 +4,12 @@ function Form() {
     return (
         <div className="flex flex-col p-0 py-16 m-0 md:flex-row">
             {/* Chap tarafdagi div */}
-            <div className="w-full md:w-1/2 bg-[#FAE9D3] p-10 flex flex-col justify-center">
-                <h2 className="text-[#D28527] text-2xl font-bold mb-4">
+            <div className="w-full md:w-1/2 bg-[#FAE9D3] p-10 pb-60 flex flex-col justify-center">
+                <h2 className="text-[#D28527] text-3xl font-bold mb-4">
                     Workshops and Spiritual Development
                 </h2>
-                <p className="text-[#D28527] text-sm leading-relaxed">
-                    Participate in our weekly workshops focused on Islamic studies and spiritual growth. <br />
-                    These sessions are designed to help you strengthen your connection with faith and acquire essential skills for daily life.
+                <p className="text-[#D28527] text-lg leading-relaxed">
+                    Participate in our weekly workshops focused on Islamic studies and spiritual growth. These sessions are designed to help you strengthen your connection with faith and acquire essential skills for daily life
                 </p>
             </div>
 

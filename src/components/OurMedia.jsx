@@ -58,7 +58,6 @@ function OurMedia() {
                         <AiOutlineArrowRight />
                     </button>
                 </div>
-
             </div>
 
             {/* Media Cards */}
