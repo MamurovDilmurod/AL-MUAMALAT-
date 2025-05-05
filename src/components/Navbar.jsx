@@ -30,7 +30,7 @@ const Navbar = () => {
 
             {/* Desktop Menu */}
             <ul className="items-center hidden gap-8 md:flex">
-                <li className="text-sm font-semibold cursor-pointer hover:text-primary">Home</li>
+                <Link to="/" className="text-sm font-semibold cursor-pointer hover:text-primary">Home</Link>
 
                 <li className="relative">
                     <div
