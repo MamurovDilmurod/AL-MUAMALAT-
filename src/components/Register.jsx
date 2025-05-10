@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import loginimg from '../img/loginimg.png';
 
-function Login() {
-    const [form, setForm] = useState({ username: '', password: '' });
+function Register() {
+    const [form, setForm] = useState({ email: '', username: '', password: '' });
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,7 +11,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Logged in successfully!');
+        alert('Registered successfully!');
         console.log(form);
     };
 
@@ -23,7 +23,17 @@ function Login() {
                     className='w-full max-w-md p-8 bg-white rounded-lg shadow-md'
                 >
                     <h2 className='mb-2 text-4xl font-bold text-center text-black'>Get started</h2>
-                    <h2 className='mb-6 text-2xl font-semibold text-center'>Sign In</h2>
+                    <h2 className='mb-6 text-2xl font-semibold text-center'>Sign Up</h2>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        value={form.email}
+                        onChange={handleChange}
+                        className='w-full p-3 mb-4 border border-[#009688] rounded-lg'
+                    />
 
                     <input
                         type="text"
@@ -55,13 +65,13 @@ function Login() {
                             fontSize: '16px',
                         }}
                     >
-                        Sign In
+                        Sign Up
                     </button>
 
                     <div className='mt-4 text-center'>
                         <span className='text-gray-600'>
-                            Don't have an account?{' '}
-                            <Link to="/register" className='font-semibold text-blue-500 hover:text-blue-600 hover:font-medium'>Sign Up</Link>
+                            Already have an account?{' '}
+                            <Link to="/login" className='font-semibold text-blue-500 hover:text-blue-600'>Sign In</Link>
                         </span>
                     </div>
                 </form>
@@ -78,4 +88,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;
