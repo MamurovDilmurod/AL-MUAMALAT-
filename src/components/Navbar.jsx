@@ -51,9 +51,11 @@ const Navbar = () => {
 
                     {isOpen1 && (
                         <ul className="absolute w-48 py-2 mt-2 bg-white rounded-md shadow-lg">
-                            <li className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-primary hover:text-white">
-                                International educational programs
-                            </li>
+                            <Link to={'/InternationalEducationalPrograms'}>
+                                <li className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-primary hover:text-white">
+                                    International educational programs
+                                </li>
+                            </Link>
                             <li className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-primary hover:text-white">
                                 Specialized courses
                             </li>
@@ -119,6 +121,12 @@ const Navbar = () => {
                     <Link to={'/login'}>
                         <button className="hidden py-2 text-white transition duration-300 rounded bg-primary px-7 hover:bg-primary-dark md:block">
                             Sign in
+                        </button>
+                    </Link>
+                    {/* Profile button */}
+                    <Link to={'/profile'}>
+                        <button className="hidden py-2 text-white transition duration-300 bg-purple-700 rounded px-7 hover:bg-primary-dark md:block">
+                            Profile
                         </button>
                     </Link>
                 </div>
