@@ -1,5 +1,6 @@
 import React from 'react';
 import ozim from '../img/ozim.jpg';
+import { Link } from 'react-router-dom';
 
 function Profile() {
     return (
@@ -9,9 +10,11 @@ function Profile() {
                 <button className="px-7 py-2 rounded-lg bg-[#009688] text-white font-normal shadow-md hover:bg-[#007f6b] transition">
                     Profile
                 </button>
-                <button className="px-7 py-2 rounded-lg bg-[#009688] text-white font-normal shadow-md hover:bg-[#007f6b] transition">
-                    Courses
-                </button>
+                <Link to={'/courses'}>
+                    <button className="px-7 py-2 rounded-lg bg-[#009688] text-white font-normal shadow-md hover:bg-[#007f6b] transition">
+                        Courses
+                    </button>
+                </Link>
             </div>
 
 

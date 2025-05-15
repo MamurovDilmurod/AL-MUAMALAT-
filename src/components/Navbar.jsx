@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import logo from '../img/logo.svg';
 import { Link } from 'react-router-dom';
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
     const [isOpen1, setIsOpen1] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState("ENG");
     const [isOpen, setIsOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
+
 
     const handleSelect = (language) => {
         setSelectedLanguage(language);
@@ -124,11 +126,16 @@ const Navbar = () => {
                         </button>
                     </Link>
                     {/* Profile button */}
-                    <Link to={'/profile'}>
-                        <button className="hidden py-2 text-white transition duration-300 bg-purple-700 rounded px-7 hover:bg-primary-dark md:block">
-                            Profile
+                    <Link to="/profile">
+                        <button
+                            type="button"
+                            className="items-center hidden gap-2 px-4 py-2 text-white transition duration-300 bg-purple-700 rounded md:flex hover:bg-purple-800"
+                        >
+                            <CgProfile className="w-6 h-6" />
+                            <span>Profil</span>
                         </button>
                     </Link>
+
                 </div>
             </div>
 
@@ -164,9 +171,11 @@ const Navbar = () => {
 
                             {isOpen1 && (
                                 <ul className="absolute w-48 py-2 mt-2 bg-white rounded-md shadow-lg">
-                                    <li className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-primary hover:text-white">
-                                        International educational programs
-                                    </li>
+                                    <Link to={'/InternationalEducationalPrograms'}>
+                                        <li className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-primary hover:text-white">
+                                            International educational programs
+                                        </li>
+                                    </Link>
                                     <li className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-primary hover:text-white">
                                         Specialized courses
                                     </li>
@@ -181,7 +190,7 @@ const Navbar = () => {
                         </li>
 
                         <li className="text-sm font-semibold cursor-pointer hover:text-primary">Finance tools</li>
-                        <Link to={'contact'} className="text-sm font-semibold cursor-pointer hover:text-primary">Contact</Link>
+                        <Link to={'/contact'} className="text-sm font-semibold cursor-pointer hover:text-primary">Contact</Link>
                         <li>
                             <Link to={'/login'}>
                                 <button className="w-full py-2 text-white transition duration-300 rounded bg-primary px-7 hover:bg-primary-dark">
@@ -190,6 +199,16 @@ const Navbar = () => {
                             </Link>
                         </li>
                     </ul>
+                    <Link to="/profile">
+                        <button
+                            type="button"
+                            className="relative flex items-center justify-center w-full gap-2 px-4 py-2 text-white transition duration-300 bg-purple-700 rounded top-2 hover:bg-purple-800 md:hidden"
+                        >
+                            <CgProfile className="w-6 h-6" />
+                            <span>Profil</span>
+                        </button>
+                    </Link>
+
                 </div>
             )}
         </nav>

@@ -8,6 +8,7 @@ import Contact from './pages/Contact'
 import Register from './components/Register'
 import Profile from './components/Profile'
 import InternationalEducationalPrograms from './pages/InternationalEducationalPrograms'
+import Course from './components/Course'
 
 const App = () => {
   const router = createBrowserRouter(createRoutesFromElements(
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/contact' element={<Contact />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/InternationalEducationalPrograms' element={<InternationalEducationalPrograms />} />
+        <Route path='/courses' element={<Course />} />
       </Route>
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
