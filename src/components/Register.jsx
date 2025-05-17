@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import loginimg from '../img/loginimg.png';
+import { useAuth } from '../context';
 
 function Register() {
     const [form, setForm] = useState({ email: '', username: '', password: '' });
@@ -11,19 +12,20 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Registered successfully!');
         console.log(form);
     };
-
+    const auth = useAuth();
+    console.log(auth);
     return (
-        <div className='flex justify-between max-w-[1320px] mx-auto px-6 py-12'>
-            <div className="flex items-center justify-center w-full md:w-1/2">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between max-w-[1320px] mx-auto px-6 py-12 gap-10">
+            {/* Form section */}
+            <div className="flex items-center justify-center w-full lg:w-1/2">
                 <form
                     onSubmit={handleSubmit}
-                    className='w-full max-w-md p-8 bg-white rounded-lg shadow-md'
+                    className="w-full max-w-md p-8 bg-white rounded-lg shadow-md"
                 >
-                    <h2 className='mb-2 text-4xl font-bold text-center text-black'>Get started</h2>
-                    <h2 className='mb-6 text-2xl font-semibold text-center'>Sign Up</h2>
+                    <h2 className="mb-2 text-4xl font-bold text-center text-black">Get started</h2>
+                    <h2 className="mb-6 text-2xl font-semibold text-center">Sign Up</h2>
 
                     <input
                         type="email"
@@ -32,7 +34,7 @@ function Register() {
                         required
                         value={form.email}
                         onChange={handleChange}
-                        className='w-full p-3 mb-4 border border-[#009688] rounded-lg'
+                        className="w-full p-3 mb-4 border border-[#009688] rounded-lg"
                     />
 
                     <input
@@ -42,7 +44,7 @@ function Register() {
                         required
                         value={form.username}
                         onChange={handleChange}
-                        className='w-full p-3 mb-4 border border-[#009688] rounded-lg'
+                        className="w-full p-3 mb-4 border border-[#009688] rounded-lg"
                     />
 
                     <input
@@ -52,12 +54,12 @@ function Register() {
                         required
                         value={form.password}
                         onChange={handleChange}
-                        className='w-full p-3 mb-6 border border-[#009688] rounded-lg'
+                        className="w-full p-3 mb-6 border border-[#009688] rounded-lg"
                     />
 
                     <button
                         type="submit"
-                        className='w-full py-3 font-semibold transition-all duration-300 hover:bg-yellow-600'
+                        className="w-full py-3 font-semibold transition-all duration-300 hover:bg-yellow-600"
                         style={{
                             backgroundColor: '#009688',
                             color: 'white',
@@ -68,19 +70,21 @@ function Register() {
                         Sign Up
                     </button>
 
-                    <div className='mt-4 text-center'>
-                        <span className='text-gray-600'>
+                    <div className="mt-4 text-center">
+                        <span className="text-gray-600">
                             Already have an account?{' '}
-                            <Link to="/login" className='font-semibold text-blue-500 hover:text-blue-600'>Sign In</Link>
+                            <Link to="/login" className="font-semibold text-blue-500 hover:text-blue-600">Sign In</Link>
                         </span>
                     </div>
                 </form>
             </div>
 
-            <div className='flex flex-col items-center justify-center w-full h-screen p-6 text-center rounded-lg md:w-1/2 bg-primary'>
-                <img src={loginimg} alt="Login Banner" className='mb-6 w-96 h-96' />
-                <h2 className='text-3xl font-bold text-white'>
-                    Welcome to Al Muamalat – <br /> Empowering Your Journey in <br />
+            {/* Image and text section */}
+            <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-[#009688] rounded-lg p-6 h-[400px] md:h-[500px] lg:h-[600px]">
+                <img src={loginimg} alt="Login Banner" className="object-contain w-64 h-64 mb-6 md:w-80 md:h-80" />
+                <h2 className="text-xl font-bold leading-snug text-center text-white md:text-2xl lg:text-3xl">
+                    Welcome to Al Muamalat – <br />
+                    Empowering Your Journey in <br />
                     Islamic Finance
                 </h2>
             </div>

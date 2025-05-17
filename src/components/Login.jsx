@@ -14,7 +14,7 @@ function Login() {
                 .then((response) => {
                     console.log(response?.data);
                     localStorage.setItem('testUserToken', response?.data?.data?.tokens?.accessToken);
-                })
+                });
         },
     });
 
@@ -24,27 +24,28 @@ function Login() {
     };
 
     return (
-        <div className='flex justify-between max-w-[1320px] mx-auto px-6 py-12'>
-            <div className="flex items-center justify-center w-full md:w-1/2">
+        <div className='flex flex-col-reverse items-center justify-center min-h-screen px-4 py-8 lg:flex-row md:px-8 lg:px-16 bg-gray-50'>
+            {/* FORM SIDE */}
+            <div className="flex items-center justify-center w-full lg:w-1/2">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className='w-full max-w-md p-8 bg-white rounded-lg shadow-md'
                 >
-                    <h2 className='mb-2 text-4xl font-bold text-center text-black'>Get started</h2>
-                    <h2 className='mb-6 text-2xl font-semibold text-center'>Sign In</h2>
+                    <h2 className='mb-2 text-3xl font-bold text-center text-black sm:text-4xl'>Get started</h2>
+                    <h2 className='mb-6 text-xl font-semibold text-center sm:text-2xl'>Sign In</h2>
 
                     <input
                         {...register("phone_number")}
                         type="text"
-                        placeholder="phone_number"
-                        className='w-full p-3 mb-4 border border-[#009688] rounded-lg'
+                        placeholder="Phone Number"
+                        className='w-full p-3 mb-4 border border-[#009688] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009688]'
                     />
 
                     <input
                         {...register("password")}
                         type="password"
                         placeholder="Password"
-                        className='w-full p-3 mb-6 border border-[#009688] rounded-lg'
+                        className='w-full p-3 mb-6 border border-[#009688] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009688]'
                     />
 
                     <button
@@ -72,9 +73,10 @@ function Login() {
                 </form>
             </div>
 
-            <div className='flex flex-col items-center justify-center w-full h-screen p-6 text-center rounded-lg md:w-1/2 bg-primary'>
-                <img src={loginimg} alt="Login Banner" className='mb-6 w-96 h-96' />
-                <h2 className='text-3xl font-bold text-white'>
+            {/* IMAGE SIDE */}
+            <div className='flex flex-col items-center justify-center w-full p-6 mb-8 text-center rounded-lg lg:w-1/2 bg-primary lg:mb-0'>
+                <img src={loginimg} alt="Login Banner" className='object-contain w-64 h-64 mb-6 sm:w-80 sm:h-80' />
+                <h2 className='text-xl font-bold leading-relaxed text-white sm:text-2xl md:text-3xl'>
                     Welcome to Al Muamalat – <br /> Empowering Your Journey in <br />
                     Islamic Finance
                 </h2>
