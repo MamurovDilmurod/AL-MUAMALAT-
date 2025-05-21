@@ -22,6 +22,21 @@ const AuthProvider = ({ children }) => {
         request.post("/auth/signup", submitData)
             .then((response) => {
                 console.log(response?.data?.data);
+                window.localStorage.setItem("testUserToken", response?.data?.data?.tokens?.accessToken);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    };
+    const handleLogin = (submitData) => {
+        setLoading(true);
+        request.post("/auth/signin", submitData)
+            .then((response) => {
+                console.log(response?.data?.data);
+                window.localStorage.setItem("testUserToken", response?.data?.data?.tokens?.accessToken);
             })
             .catch((error) => {
                 console.log(error);
@@ -34,6 +49,7 @@ const AuthProvider = ({ children }) => {
     const value = {
         loading,
         register: handleRegister,
+        login: handleLogin,
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

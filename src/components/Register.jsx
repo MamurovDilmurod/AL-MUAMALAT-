@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import loginimg from '../img/loginimg.png';
 import { useAuth } from '../context';
+import { useForm } from 'react-hook-form';
 
 function Register() {
     const [form, setForm] = useState({ email: '', username: '', password: '' });
@@ -10,50 +11,48 @@ function Register() {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(form);
-    };
     const auth = useAuth();
-    console.log(auth);
+    const { register, handleSubmit } = useForm()
+
+    const onSubmit = (data) => {
+        const { full_name, password, phone_number } = data;
+        auth.register({ full_name, password, phone_number }, () => {
+            alert('Successfully registered');
+        });
+    };
+
     return (
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between max-w-[1320px] mx-auto px-6 py-12 gap-10">
             {/* Form section */}
             <div className="flex items-center justify-center w-full lg:w-1/2">
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={handleSubmit(onSubmit)}
                     className="w-full max-w-md p-8 bg-white rounded-lg shadow-md"
                 >
                     <h2 className="mb-2 text-4xl font-bold text-center text-black">Get started</h2>
                     <h2 className="mb-6 text-2xl font-semibold text-center">Sign Up</h2>
 
                     <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        required
-                        value={form.email}
-                        onChange={handleChange}
-                        className="w-full p-3 mb-4 border border-[#009688] rounded-lg"
-                    />
-
-                    <input
                         type="text"
-                        name="username"
-                        placeholder="Username"
                         required
-                        value={form.username}
-                        onChange={handleChange}
+                        placeholder='Full Name'
+                        {...register("full_name")}
                         className="w-full p-3 mb-4 border border-[#009688] rounded-lg"
                     />
 
                     <input
                         type="password"
-                        name="password"
-                        placeholder="Password"
+                        placeholder="password"
                         required
-                        value={form.password}
-                        onChange={handleChange}
+                        {...register("password")}
+                        className="w-full p-3 mb-4 border border-[#009688] rounded-lg"
+                    />
+
+                    <input
+                        type="text"
+                        placeholder="Phone Number"
+                        required
+                        {...register("phone_number")}
                         className="w-full p-3 mb-6 border border-[#009688] rounded-lg"
                     />
 
